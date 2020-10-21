@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.logout {
+    float: right;
+}
+
+.navbar a:hover, .logout:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.cabeçalho {
+    text-align: center;
+    color: rgb(39, 39, 39)
+}
+
+.texto1 {
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+.link{
+  color: hotpink;
+  background-color: yellow;
+}
+
+img.imagem {
+  width: 80%;
+  border-radius: 2px;
+}
+
+#tabela{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tabela td, #tabela th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tabela tr:nth-child(even){background-color: #f2f2f2;}
+
+#tabela tr:hover {background-color: #ddd;}
+
+#tabela th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #388f3b
+
+}
+
+</style>
+<body>
+<div class="navbar">
+    <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+    <a href="busca.html"><i class="fa fa-fw fa-search"></i> Busca</a> 
+    <a href="formulario.html"><i class="fa fa-fw fa-envelope"></i> Contato</a>
+    <div class="logout">
+        <a href="index.html"><i class="fa fa-fw fa-user"></i> Sair</a>
+    </div>
+</div>
+<header class="cabeçalho">
+    <h2> Este é um cabeçalho! </h2>
+</header>
+
+<b><i>Este é um texto formatado!</i></b>
+
+<p class="texto1">Este é um <a href="formulario.html" class="link">link!</a></p>
+
+<h3>Esta é uma tabela!</h3>
+<table id="tabela">
+    <tr>
+      <th>Nome</th>
+      <th>Sobrenome</th> 
+      <th>idade</th>
+    </tr>
+    <tr>
+      <td>Aeronauta</td>
+      <td>Barata</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Amado</td>
+      <td>Amoroso</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>Alce</td>
+      <td>Barbuda</td>
+      <td>80</td>
+    </tr>
+</table>
+
+<img src="https://s2.glbimg.com/_uuXBTExNJq_TxdvVbtPdjsFeZY=/e.glbimg.com/og/ed/f/original/2018/11/22/mary-mcgowan_caught-in-the-act_00001294_2018-comedy-wildlife-photography-awards__wyniki_20.jpg" alt="Esta é uma imagem!" class="imagem">
+</body>
+</html>

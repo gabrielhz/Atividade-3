@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(221, 221, 221);
+}
+
+input[type=text] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+textarea {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.logout {
+    float: right;
+}
+
+.navbar a:hover, .logout:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 90%;
+  
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  
+}
+
+</style>
+    <body>
+      <div class="navbar">
+        <a href="home.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="busca.html"><i class="fa fa-fw fa-search"></i> Busca</a> 
+        <a class="active" href="formulario.html"><i class="fa fa-fw fa-envelope"></i> Contato</a>
+        <div class="logout">
+            <a href="index.html"><i class="fa fa-fw fa-user"></i> Sair</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Contato</h2>
+        <form>
+            <label for="nome"><b>Nome:</b></label><br>
+            <input type="text" placeholder = "Seu nome" id="nome" name="nome" required><br>
+            <label for="email"><b>Email</b></label><br>
+            <input type="text" placeholder="Seu email" name="email" id="email" required><br>
+            <label for="msg"><b>Mensagem:</b></label><br>
+            <textarea id="msg" name="msg"rows="10" cols="33"></textarea><br>
+            <input type="button" value="Enviar" class="btn" onclick="enviar()">
+            <div id="alerta"></div>  
+        </form>
+    </div>
+    </body>
+    <script>
+
+var nome = document.querySelector('input#nome')
+
+var email = document.querySelector('input#email')
+
+var msg = document.querySelector('#msg')
+
+var alerta = document.getElementById('alerta')
+
+function enviar(){
+  if (nome.value.length != 0 && email.value.length != 0 && msg.value.length != 0) {
+    var str = email.value
+    var n = str.search(/@/i);
+    document.getElementById("email").innerHTML = n;
+    if (n > 0) {
+      alerta.innerHTML = `<i>Mensagem enviada!</i>`
+      alerta.style.color = '#98f59e'
+      localStorage.setItem('Nome', nome.value)
+      localStorage.setItem('Email', email.value)
+      localStorage.setItem('msg', msg.value)
+      window.location.href = "busca.html";
+    }else{
+        alerta.innerHTML = `<i>Preencha os dados corretamente!</i>`
+        mensagem.style.color = '#f55d5d'
+
+      if(nome.value == "") {
+        nome.style.borderColor = "#f55d5d"
+      }
+      if (email.value == "") {
+        email.style.borderColor = "#f55d5d"
+      }
+      if (msg.value == "") {
+        msg.style.borderColor = "#f55d5d"
+      }
+    }
+  }
+}
+    </script>
+</html>

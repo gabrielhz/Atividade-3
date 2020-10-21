@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(221, 221, 221);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  text-align: center;
+}
+
+#mensagem {
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<form>
+  <div class="container">
+    <h1>Cadastro</h1>
+    <p>Por favor preencha este formulário para criar uma conta.</p>
+    <hr>
+
+    <label for="nome"><b>Nome</b></label>
+    <input type="text" placeholder="Nome Completo" name="nome" id="nome" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Email" name="email" id="email" required>
+
+    <label for="senha"><b>Senha</b></label>
+    <input type="password" placeholder="Senha" name="senha" id="senha" required>
+
+    <label for="senha-repeat"><b>Confirmação de Senha</b></label>
+    <input type="password" placeholder="Repita a Senha" name="senha-repeat" id="senha-repeat" required>
+    <hr>
+    <p>Criando uma conta você concorda com nossos <a href="#">Termos de Serviço</a>.</p>
+
+    <input type="button" value="Cadastrar" class="registerbtn" onclick="cadastro()">
+    <p class="signin">Já tem uma conta? Faça o <a href="index.html">login</a>.</p>
+  </div>
+</form>
+
+<div id="mensagem"></div> 
+
+
+<script>
+
+  var nome = document.querySelector('input#nome')
+
+  var email = document.querySelector('input#email')
+  
+  var senha = document.querySelector('input#senha')
+
+  var senharepeat = document.querySelector('input#senha-repeat')
+
+  var mensagem = document.getElementById('mensagem')
+         
+
+  function cadastro(){
+  if (nome.value.length != 0 && email.value.length != 0 && senha.value.length != 0 && senha.value == senharepeat.value) {
+    var str = email.value
+    var n = str.search(/@/i);
+    document.getElementById("email").innerHTML = n;
+    sessionStorage.setItem('Email', email.value)
+    sessionStorage.setItem('Senha', senha.value)
+    sessionStorage.setItem('Nome', nome.value)
+    if (n > 0) {
+      mensagem.innerHTML = `<i>Cadastro efetuado!</i>`
+      mensagem.style.color = '#98f59e'
+      window.location.href = "home.html";
+    }else{
+        mensagem.innerHTML = `<i>Preencha os dados corretamente!</i>`
+        mensagem.style.color = '#f55d5d'
+
+      if(nome.value == "") {
+        nome.style.borderColor = "#f55d5d"
+      }
+      if (email.value == "") {
+        email.style.borderColor = "#f55d5d"
+      }
+      if (senha.value == "") {
+        senha.style.borderColor = "#f55d5d"
+      }
+      if (senha.value != senharepeat.value && senharepeat.value != senha.value) {
+        senha.style.borderColor = "#f55d5d"
+        senharepeat.style.borderColor = "#f55d5d"
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
